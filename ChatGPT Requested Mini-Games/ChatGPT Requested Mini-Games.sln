@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Number Guesser", "Numbe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Fighter", "03. Fighter\03. Fighter.csproj", "{5153A2AC-B633-407C-99A3-8B81B6A32529}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Math Game", "04. Math Game\04. Math Game.csproj", "{EB55A950-D1C9-4D45-88A3-E6EE6D6D03C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5153A2AC-B633-407C-99A3-8B81B6A32529}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5153A2AC-B633-407C-99A3-8B81B6A32529}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5153A2AC-B633-407C-99A3-8B81B6A32529}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB55A950-D1C9-4D45-88A3-E6EE6D6D03C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB55A950-D1C9-4D45-88A3-E6EE6D6D03C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB55A950-D1C9-4D45-88A3-E6EE6D6D03C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB55A950-D1C9-4D45-88A3-E6EE6D6D03C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
