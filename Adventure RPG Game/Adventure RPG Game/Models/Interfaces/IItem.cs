@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Adventure_RPG_Game.Models.Interfaces
+namespace Chest
 {
-    internal class IItem
+    public interface IItem
     {
+        string Name { get; }
+
+        int Price { get; }
     }
 }

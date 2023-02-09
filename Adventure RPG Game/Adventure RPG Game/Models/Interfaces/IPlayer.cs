@@ -4,9 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Adventure_RPG_Game.Models.Interfaces
+namespace Chest
 {
-    internal class IPlayer
+    public interface IPlayer
     {
+        string Name { get; }
+
+        int Health { get; }
+
+        Type Type { get; }
+
+        ICollection<IItem> Inventory { get; }
+
+        void Attack();
+
+        void Block();
+
+        void Sell();
     }
 }

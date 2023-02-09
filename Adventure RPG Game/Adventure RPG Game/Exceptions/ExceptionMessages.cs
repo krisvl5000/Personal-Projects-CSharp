@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Adventure_RPG_Game.Exceptions
+namespace Chest
 {
-    internal class ExceptionMessages
+    public static class ExceptionMessages
     {
+
     }
 }

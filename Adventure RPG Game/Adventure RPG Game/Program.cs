@@ -1,2 +1,17 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System;
+
+namespace Chest
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            IReader reader = new ConsoleReader();
+            IWriter writer = new ConsoleWriter();
+
+            IEngine engine  = new Engine(reader, writer);
+            engine.Run();
+
+        }
+    }
+}

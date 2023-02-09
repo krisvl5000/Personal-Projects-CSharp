@@ -4,9 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Adventure_RPG_Game.Core
+namespace Chest
 {
-    internal class engine
+    public class Engine : IEngine
     {
+        private readonly IReader reader;
+        private readonly IWriter writer;
+
+        private readonly ICollection<IItem> items;
+
+        private Engine()
+        {
+            items = new HashSet<IItem>();
+        }
+
+        public Engine(IReader reader, IWriter writer) : this()
+        {
+            this.reader = reader;
+            this.writer = writer;
+        }
+
+        public void Run()
+        {
+            
+        }
     }
 }

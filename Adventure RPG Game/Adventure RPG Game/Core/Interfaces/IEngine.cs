@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Adventure_RPG_Game.Core.Interfaces
+namespace Chest
 {
-    internal class IEngine
+    public interface IEngine
     {
+        void Run();
     }
 }
