@@ -8,12 +8,12 @@ namespace Chest
 {
     public class ConsoleWriter : IWriter
     {
-        public void Write(string text)
+        public void Write(object text)
         {
             Console.Write(text);
         }
 
-        public void WriteLine(string text)
+        public void WriteLine(object text)
         {
             Console.WriteLine(text);
         }

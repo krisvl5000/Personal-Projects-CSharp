@@ -10,16 +10,14 @@ namespace Chest
     {
         string Name { get; }
 
-        int Health { get; }
+        int Health { get; set; }
 
-        Type Type { get; }
+        int Money { get; }
 
-        ICollection<IItem> Inventory { get; }
+        void Attack(IItem item, IPlayer enemy);
 
-        void Attack();
+        void Block(IItem item, IPlayer enemy);
 
-        void Block();
-
-        void Sell();
+        void Sell(IItem item);
     }
 }

@@ -11,5 +11,7 @@ namespace Chest
         string Name { get; }
 
         int Price { get; }
+
+        int Damage { get; }
     }
 }

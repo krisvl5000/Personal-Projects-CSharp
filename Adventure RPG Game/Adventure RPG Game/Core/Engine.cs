@@ -26,7 +26,14 @@ namespace Chest
 
         public void Run()
         {
-            
+            IItem basicSword = new BasicSword("Basic Sword", 10, 50);
+            IPlayer player = new MainPlayer("Main Player");
+            IPlayer otherPlayer = new MainPlayer("Nekoi si tam");
+
+            //otherPlayer.Health = 100;
+
+            player.Attack(basicSword, otherPlayer);
+            writer.WriteLine(otherPlayer.Health);
         }
     }
 }

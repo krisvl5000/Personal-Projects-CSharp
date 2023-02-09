@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Chest
 {
-    public class InvalidPlayerNameException : Exception
+    public class BasicSword : Item
     {
-        public InvalidPlayerNameException(string message) : base(message)
+        public BasicSword(string name, int price, int damage) 
+            : base(name, price, damage)
         {
 
         }

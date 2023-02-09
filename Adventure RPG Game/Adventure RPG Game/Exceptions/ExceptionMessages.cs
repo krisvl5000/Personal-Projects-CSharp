@@ -8,6 +8,6 @@ namespace Chest
 {
     public static class ExceptionMessages
     {
-
+        public const string INVALID_PLAYER_NAME_MESSAGE = "Invalid name";
     }
 }
