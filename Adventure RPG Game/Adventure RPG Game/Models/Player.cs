@@ -36,25 +36,18 @@ namespace Chest
             }
         }
 
+        public IItem MainWeapon { get; set; }
+
         public int Health { get; set; }
 
         public int Money { get; set; }
 
         public abstract ICollection<IItem> Inventory { get; set; }
 
-        public void Attack(IItem weapon, IPlayer enemy)
-        {
-            enemy.Health -= weapon.Damage;
-        }
+        public abstract void Attack(IItem weapon, IPlayer enemy);
 
-        public void Block(IItem shield, IPlayer enemy)
-        {
+        public abstract void Block(IItem shield, IPlayer enemy);
 
-        }
-
-        public void Sell(IItem item)
-        {
-
-        }
+        public abstract void Sell(IItem item);
     }
 }
