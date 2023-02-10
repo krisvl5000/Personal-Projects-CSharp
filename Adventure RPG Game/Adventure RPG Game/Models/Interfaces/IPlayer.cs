@@ -14,6 +14,8 @@ namespace Chest
 
         int Money { get; }
 
+        IItem MainWeapon { get; set; }
+
         void Attack(IItem item, IPlayer enemy);
 
         void Block(IItem item, IPlayer enemy);
