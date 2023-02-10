@@ -19,5 +19,30 @@ namespace Chest
         {
             Inventory.Add(item);
         }
+
+        public override void Attack(IItem weapon, IPlayer enemy)
+        {
+            if (Inventory.Contains(weapon))
+                enemy.Health -= weapon.Damage;
+
+            else
+            {
+                throw new InvalidWeaponException
+                    (ExceptionMessages.INVALID_WEAPON_MESSAGE);
+            }
+        }
+
+        public override void Block(IItem shield, IPlayer enemy)
+        {
+            if (Inventory.Contains(shield))
+            {
+                
+            }
+        }
+
+        public override void Sell(IItem item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
