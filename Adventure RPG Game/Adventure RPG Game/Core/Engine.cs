@@ -34,6 +34,9 @@ namespace Chest
 
             player.Attack(basicSword, otherPlayer);
             writer.WriteLine(otherPlayer.Health);
+
+            IItem newItem = new BasicSword("Edi si kvo", 2, 4);
+            player.MainWeapon = newItem;
         }
     }
 }
