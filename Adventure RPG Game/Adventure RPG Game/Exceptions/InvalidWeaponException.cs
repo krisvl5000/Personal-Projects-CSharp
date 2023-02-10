@@ -4,9 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Adventure_RPG_Game.Exceptions
+namespace Chest
 {
-    internal class InvalidWeaponException
+    public class InvalidWeaponException : Exception
     {
+        public InvalidWeaponException()
+        {
+
+        }
+
+        public InvalidWeaponException(string message) : base(message)
+        {
+
+        }
     }
 }
