@@ -11,7 +11,6 @@ namespace Chest
 
             IEngine engine  = new Engine(reader, writer);
             engine.Run();
-
         }
     }
 }
