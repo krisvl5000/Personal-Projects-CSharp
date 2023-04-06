@@ -11,6 +11,6 @@ namespace Chest
         public const string INVALID_PLAYER_NAME_MESSAGE = "Invalid name";
 
         public const string INVALID_WEAPON_MESSAGE =
-            "Invalid weapon, try a diffrent one";
+            "Invalid weapon, try a different one";
     }
 }
