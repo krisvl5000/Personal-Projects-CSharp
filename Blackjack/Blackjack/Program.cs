@@ -1,5 +1,7 @@
 ﻿using System;
 using Blackjack.Core;
+using Blackjack.Models.Cards;
+using Blackjack.Models.Entities;
 
 namespace _01._Hello_Softuni
 {
@@ -7,7 +9,10 @@ namespace _01._Hello_Softuni
     {
         static void Main(string[] args)
         {
-            Engine engine = new Engine();
+            Deck deck = new Deck();
+            IEntity dealer = new Dealer(deck);
+            IEntity player = new Player("Player");
+            Engine engine = new Engine(dealer, player);
             engine.Run();
         }
     }
