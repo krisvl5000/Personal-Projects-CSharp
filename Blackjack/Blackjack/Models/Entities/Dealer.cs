@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace Blackjack.Models.Entities
 {
-    internal class Dealer
+    public class Dealer : IEntity
     {
+        public Dealer()
+        {
+            Name = "Dealer";
+            Balance = 9999999;
+        }
+
+        public string Name { get; set; }
+
+        public int Balance { get; set; }
     }
 }
