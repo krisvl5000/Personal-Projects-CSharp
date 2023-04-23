@@ -11,5 +11,7 @@ namespace Blackjack.Models.Cards
         public int Value { get; set; }
 
         public string Suit { get; set; }
+
+        public string Face { get; set; }
     }
 }
