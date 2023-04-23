@@ -114,5 +114,11 @@ namespace Blackjack.Core
         {
 
         }
+
+        public void Bet(int bet)
+        {
+            dealer.TotalBetPool += bet;
+            player.Balance -= bet;
+        }
     }
 }
