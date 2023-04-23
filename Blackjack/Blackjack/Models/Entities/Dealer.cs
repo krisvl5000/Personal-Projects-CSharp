@@ -18,6 +18,7 @@ namespace Blackjack.Models.Entities
             Name = "Dealer";
             Balance = 9999999;
             Score = 0;
+            Hand = new List<Card>();
         }
 
         public string Name { get; set; }
@@ -27,5 +28,7 @@ namespace Blackjack.Models.Entities
         public Deck Deck { get; set; }
 
         public int Score { get; set; }
+
+        public List<Card> Hand { get; set; }
     }
 }
