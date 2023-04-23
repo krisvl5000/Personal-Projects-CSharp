@@ -29,6 +29,7 @@ namespace Blackjack.Core
             Card dealtCard = dealer.Deck.Cards[randomNum];
             dealer.Deck.Cards.Remove(dealtCard); // there is a chance it won't be removed
             player.Score += dealtCard.Value;
+            
 
             // Dealing the dealer first card
             randomNum = random.Next(0, dealer.Deck.Cards.Count);
