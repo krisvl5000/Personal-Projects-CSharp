@@ -19,6 +19,7 @@ namespace Blackjack.Models.Entities
             Balance = 9999999;
             Score = 0;
             Hand = new List<Card>();
+            TotalBetPool = 0;
         }
 
         public string Name { get; set; }
@@ -30,5 +31,7 @@ namespace Blackjack.Models.Entities
         public int Score { get; set; }
 
         public List<Card> Hand { get; set; }
+
+        public int TotalBetPool { get; set; }
     }
 }
