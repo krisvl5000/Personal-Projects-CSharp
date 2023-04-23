@@ -8,6 +8,11 @@ namespace Blackjack.Core
 {
     public class Engine
     {
+        public Engine()
+        {
+            
+        }
+
         public void Run()
         {
 
