@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Blackjack.Models.Cards
 {
-    internal class Card
+    public class Card : ICard
     {
+        public Card()
+        {
+            
+        }
+
+        public int Value { get; set; }
+        public string Suit { get; set; }
     }
 }
