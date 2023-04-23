@@ -13,9 +13,11 @@ namespace Blackjack.Models.Entities
     {
         public Dealer(Deck deck)
         {
+            Deck = deck;
+
             Name = "Dealer";
             Balance = 9999999;
-            Deck = deck;
+            Score = 0;
         }
 
         public string Name { get; set; }
@@ -24,9 +26,6 @@ namespace Blackjack.Models.Entities
 
         public Deck Deck { get; set; }
 
-        public void Deal()
-        {
-
-        }
+        public int Score { get; set; }
     }
 }
