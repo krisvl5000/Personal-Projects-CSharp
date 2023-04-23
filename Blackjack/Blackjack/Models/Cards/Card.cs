@@ -8,9 +8,10 @@ namespace Blackjack.Models.Cards
 {
     public class Card : ICard
     {
-        public Card()
+        public Card(int value, string suit)
         {
-            
+            Value = value;
+            Suit = suit;
         }
 
         public int Value { get; set; }
