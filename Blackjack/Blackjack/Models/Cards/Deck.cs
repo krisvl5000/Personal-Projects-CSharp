@@ -12,28 +12,44 @@ namespace Blackjack.Models.Cards
     {
         public Deck()
         {
-
+            Cards = InitializeDeck();
         }
 
-        public List<Card> Cards => InitializeDeck();
+        public List<ICard> Cards;
 
-        private List<Card> InitializeDeck()
+        private List<ICard> InitializeDeck()
         {
-            var cards = new List<Card>();
+            var cards = new List<ICard>();
             var suit = "";
+
+            ICard newCard = null;
 
             for (int j = 0; j < 4; j++)
             {
-                for (int i = 2; i < 14; i++)
+                for (int i = 2; i < 15; i++)
                 {
                     if (i <= 10)
                     {
-                        var newCard = new Card(i, CheckSuit(j), i.ToString());
+                        newCard = new Card(i, CheckSuit(j), i.ToString());
                     }
                     else if (i == 11)
                     {
-
+                        newCard = new Card(10, CheckSuit(j), "J");
                     }
+                    else if (i == 12)
+                    {
+                        newCard = new Card(10, CheckSuit(j), "Q");
+                    }
+                    else if (i == 13)
+                    {
+                        newCard = new Card(10, CheckSuit(j), "K");
+                    }
+                    else
+                    {
+                        newCard = new Card(11, CheckSuit(j), "A");
+                    }
+
+                    cards.Add(newCard);
                 }
             }
 
