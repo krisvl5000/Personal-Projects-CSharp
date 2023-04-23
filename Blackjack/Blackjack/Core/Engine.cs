@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Blackjack.Core
 {
-    internal class Engine
+    public class Engine
     {
+        public void Run()
+        {
+
+        }
     }
 }
