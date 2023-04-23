@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Blackjack.Models.Cards;
 
 namespace Blackjack.Models.Entities
 {
@@ -12,6 +13,8 @@ namespace Blackjack.Models.Entities
         {
             Name = name;
             Balance = 1000;
+
+            Hand = new List<Card>();
         }
 
         public string Name { get; set; }
@@ -19,5 +22,7 @@ namespace Blackjack.Models.Entities
         public int Balance { get; set; }
 
         public int Score { get; set; }
+
+        public List<Card> Hand { get; set; }
     }
 }
