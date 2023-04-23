@@ -10,8 +10,8 @@ namespace _01._Hello_Softuni
         static void Main(string[] args)
         {
             Deck deck = new Deck();
-            IEntity dealer = new Dealer(deck);
-            IEntity player = new Player("Player");
+            Dealer dealer = new Dealer(deck);
+            Player player = new Player("Player");
             Engine engine = new Engine(dealer, player);
             engine.Run();
         }
