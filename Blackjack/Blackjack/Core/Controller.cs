@@ -37,7 +37,6 @@ namespace Blackjack.Core
             randomNum = random.Next(0, dealer.Deck.Cards.Count);
             dealtCard = dealer.Deck.Cards[randomNum];
             dealer.Deck.Cards.Remove(dealtCard);
-            dealer.Score += dealtCard.Value;
             dealer.Hand.Add(dealtCard);
 
             //Dealing the player the second card
@@ -57,6 +56,7 @@ namespace Blackjack.Core
             randomNum = random.Next(0, dealer.Deck.Cards.Count);
             dealtCard = dealer.Deck.Cards[randomNum];
             dealer.Deck.Cards.Remove(dealtCard);
+            dealer.Score += dealtCard.Value;
             dealer.Hand.Add(dealtCard);
 
             // Checking if the dealer has blackjack
@@ -78,6 +78,10 @@ namespace Blackjack.Core
             {
                 DealerWins();
             }
+
+            Console.WriteLine($"Dealer cards: {dealer.Hand[1]}");
+            Console.WriteLine($"Your cards: {String.Join(" ", player.Hand)}");
+            Console.WriteLine($"How do you want to proceed?");
         }
 
         public void Hit()
