@@ -15,14 +15,14 @@ namespace Blackjack.Models.Cards
             Cards = InitializeDeck();
         }
 
-        public List<ICard> Cards;
+        public List<Card> Cards;
 
-        private List<ICard> InitializeDeck()
+        private List<Card> InitializeDeck()
         {
-            var cards = new List<ICard>();
+            var cards = new List<Card>();
             var suit = "";
 
-            ICard newCard = null;
+            Card newCard = null;
 
             for (int j = 0; j < 4; j++)
             {
