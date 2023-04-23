@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Blackjack.Models.Cards
 {
-    internal class Deck
+    public class Deck
     {
+
     }
 }
