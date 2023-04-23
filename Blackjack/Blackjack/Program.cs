@@ -1,4 +1,5 @@
 ﻿using System;
+using Blackjack.Core;
 
 namespace _01._Hello_Softuni
 {
@@ -6,8 +7,8 @@ namespace _01._Hello_Softuni
     {
         static void Main(string[] args)
         {
-            
-
+            Engine engine = new Engine();
+            engine.Run();
         }
     }
 }
