@@ -24,34 +24,59 @@ namespace Blackjack.Core
         {
             Random random = new Random();
             int randomNum = random.Next(0, dealer.Deck.Cards.Count);
+            bool playerBlackjack = false;
+            bool dealerBlackjack = false;
 
             // Dealing player the first card
             Card dealtCard = dealer.Deck.Cards[randomNum];
             dealer.Deck.Cards.Remove(dealtCard); // there is a chance it won't be removed
             player.Score += dealtCard.Value;
-            
+            player.Hand.Add(dealtCard);
 
             // Dealing the dealer first card
             randomNum = random.Next(0, dealer.Deck.Cards.Count);
             dealtCard = dealer.Deck.Cards[randomNum];
+            dealer.Deck.Cards.Remove(dealtCard);
             dealer.Score += dealtCard.Value;
+            dealer.Hand.Add(dealtCard);
 
             //Dealing the player the second card
+            randomNum = random.Next(0, dealer.Deck.Cards.Count);
             dealtCard = dealer.Deck.Cards[randomNum];
             dealer.Deck.Cards.Remove(dealtCard);
             player.Score += dealtCard.Value;
+            player.Hand.Add(dealtCard);
+
+            // Checking if the player has blackjack
+            if (player.Score == 21)
+            {
+                playerBlackjack = true;
+            }
 
             // Dealing the dealer the second card
             randomNum = random.Next(0, dealer.Deck.Cards.Count);
             dealtCard = dealer.Deck.Cards[randomNum];
-            
+            dealer.Deck.Cards.Remove(dealtCard);
+            dealer.Hand.Add(dealtCard);
+
             // Checking if the dealer has blackjack
             if (dealer.Score + dealtCard.Value == 21)
             {
-                if (player.Score == 21)
-                {
+                dealerBlackjack = true;
+            }
 
-                }
+            // Checking outcome
+            if (playerBlackjack && dealerBlackjack)
+            {
+                Push();
+            }
+            else if (playerBlackjack && !dealerBlackjack)
+            {
+                PlayerWins();
+            }
+            else if (dealerBlackjack && !playerBlackjack)
+            {
+                DealerWins();
             }
         }
 
@@ -76,6 +101,16 @@ namespace Blackjack.Core
         }
 
         public void Push()
+        {
+
+        }
+
+        public void PlayerWins()
+        {
+
+        }
+
+        public void DealerWins()
         {
 
         }
