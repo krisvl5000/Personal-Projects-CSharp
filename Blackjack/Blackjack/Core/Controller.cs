@@ -109,11 +109,21 @@ namespace Blackjack.Core
         public void Stand()
         {
             Console.WriteLine($"Dealer cards: {String.Join(" ", dealer.Hand)}   Total value: {GetHandValue(dealer.Hand)}");
-            Console.WriteLine("Press any key when you are ready for the dealer to draw a new card.");
-            Console.ReadKey();
 
-            while (GetHandValue(dealer.Hand) < 17)
+            if (GetHandValue(dealer.Hand) < 17)
             {
+                Console.WriteLine("Press any key when you are ready for the dealer to draw a new card.");
+                Console.ReadKey();
+            }
+
+            while (GetHandValue(dealer.Hand) < 17) // draws even if he has an ace and the total is above 16
+            {
+
+                if (dealer.Hand.Any(x => x.Face == "A") && dealer.Hand[1].Value + 11 > 16)
+                {
+                    break;
+                }
+
                 Random random = new Random();
                 int randomNum = random.Next(0, dealer.Deck.Cards.Count);
                 var dealtCard = dealer.Deck.Cards[randomNum];
@@ -170,6 +180,7 @@ namespace Blackjack.Core
         public void Push()
         {
             player.Balance += dealer.TotalBetPool;
+            Console.WriteLine($"You pushed! You got your ${dealer.TotalBetPool} back!");
             RestartGame();
         }
 
