@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -76,7 +77,7 @@ namespace Blackjack.Core
             }
             else if (dealerBlackjack && !playerBlackjack)
             {
-                DealerWins(dealerBlackjack);
+                DealerWins();
             }
 
             PrintCards();
@@ -93,7 +94,6 @@ namespace Blackjack.Core
             player.Score += dealtCard.Value;
             player.Hand.Add(dealtCard);
             PrintCards();
-
         }
 
         public void Stand()
@@ -129,11 +129,14 @@ namespace Blackjack.Core
                 player.Balance += dealer.TotalBetPool * 2;
             }
 
+            Console.WriteLine($"Congratulations, you won the hand! You won ${dealer.TotalBetPool:F2}!");
+
             RestartGame();
         }
 
-        public void DealerWins(bool blackJack)
+        public void DealerWins()
         {
+            Console.WriteLine($"Sorry, you lost! Remaining balance: ${player.Balance:F2}");
             RestartGame();
         }
 
@@ -158,6 +161,47 @@ namespace Blackjack.Core
             Console.WriteLine($"Dealer cards: {dealer.Hand[1]}");
             Console.WriteLine($"Your cards: {String.Join(" ", player.Hand)}");
             Console.WriteLine($"How do you want to proceed?");
+        }
+
+        private bool HasPlayerBusted()
+        {
+            bool playerHasBusted = GetHandValue(player.Hand) > 21;
+
+            return playerHasBusted;
+        }
+
+        private bool HasDealerBusted()
+        {
+            bool dealerHasBusted = GetHandValue(dealer.Hand) > 21;
+
+            return dealerHasBusted;
+        }
+
+        private int GetHandValue(List<Card> list)
+        {
+            int value = 0;
+            int numAces = 0;
+
+            foreach (var card in list)
+            {
+                if (card.Face == "A")
+                {
+                    numAces++;
+                    value++;
+                }
+                else
+                {
+                    value += card.Value;
+                }
+            }
+
+            while (numAces > 0 && value + 10 <= 21)
+            {
+                value += 10;
+                numAces--;
+            }
+
+            return value;
         }
     }
 }
