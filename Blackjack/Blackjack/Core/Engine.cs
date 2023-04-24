@@ -44,11 +44,13 @@ namespace Blackjack.Core
                 {
                     exceptionCaught = true;
                     Console.WriteLine($"Bet value cannot be greater than your balance ({player.Balance}).");
+                    Console.WriteLine();
                 }
                 catch (Exception ex)
                 {
                     exceptionCaught = true;
                     Console.WriteLine("Please only write whole numbers as bets.");
+                    Console.WriteLine();
                 }
 
                 if (!exceptionCaught)
@@ -64,6 +66,8 @@ namespace Blackjack.Core
             while (true)
             {
                 Console.WriteLine($"\nPress enter to hit, space to stand, D to double down or S to split (if possible). Balance: {player.Balance:F2}");
+
+                Console.WriteLine();
 
                 ConsoleKeyInfo key = Console.ReadKey();
 
