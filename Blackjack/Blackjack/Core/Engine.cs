@@ -93,13 +93,14 @@ namespace Blackjack.Core
                 }
                 else if (key.Key == ConsoleKey.D)
                 {
-                    if (player.Balance >= bet * 2)
+                    if (player.Balance >= bet)
                     {
                         controller.Bet(bet);
                         controller.DoubleDown();
                     }
                     else
                     {
+                        Console.WriteLine("Not enough balance! You can't double down!");
                         continue;
                     }
                 }
@@ -112,6 +113,7 @@ namespace Blackjack.Core
                     }
                     else
                     {
+                        Console.WriteLine("Not enough balance! You can't split!");
                         continue;
                     }
                 }
