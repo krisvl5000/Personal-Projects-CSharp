@@ -151,6 +151,7 @@ namespace Blackjack.Core
             if (HasDealerBusted())
             {
                 PlayerWins(playerBlackjack);
+                return;
             }
 
             if (GetHandValue(player.Hand) > GetHandValue(dealer.Hand))
