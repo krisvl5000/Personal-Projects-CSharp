@@ -63,7 +63,30 @@ namespace Blackjack.Core
 
             while (true)
             {
-                
+                Console.WriteLine($"Press 1 to hit, 2 to stand, 3 to double down or 4 to split (if possible).");
+
+                ConsoleKeyInfo key = Console.ReadKey();
+
+                if (key.Key == ConsoleKey.D1)
+                {
+                    controller.Hit();
+                }
+                else if (key.Key == ConsoleKey.D2)
+                {
+                    controller.Stand();
+                }
+                else if (key.Key == ConsoleKey.D3)
+                {
+                    controller.DoubleDown();
+                }
+                else if (key.Key == ConsoleKey.D4)
+                {
+                    controller.Split();
+                }
+                else
+                {
+                    Console.WriteLine("\nInvalid key, try 1, 2, 3 or 4.");
+                }
             }
         }
     }
