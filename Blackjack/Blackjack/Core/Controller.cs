@@ -14,6 +14,7 @@ namespace Blackjack.Core
     {
         private Dealer dealer;
         private IEntity player;
+        private bool playerBlackjack;
 
         public Controller(Dealer dealer, IEntity player)
         {
@@ -25,12 +26,12 @@ namespace Blackjack.Core
         {
             Random random = new Random();
             int randomNum = random.Next(0, dealer.Deck.Cards.Count);
-            bool playerBlackjack = false;
+            playerBlackjack = false;
             bool dealerBlackjack = false;
 
             // Dealing player the first card
             Card dealtCard = dealer.Deck.Cards[randomNum];
-            dealer.Deck.Cards.Remove(dealtCard); // there is a chance it won't be removed
+            dealer.Deck.Cards.Remove(dealtCard);
             player.Score += dealtCard.Value;
             player.Hand.Add(dealtCard);
 
@@ -40,7 +41,7 @@ namespace Blackjack.Core
             dealer.Deck.Cards.Remove(dealtCard);
             dealer.Hand.Add(dealtCard);
 
-            //Dealing the player the second card
+            //Dealing the player the second card (face down)
             randomNum = random.Next(0, dealer.Deck.Cards.Count);
             dealtCard = dealer.Deck.Cards[randomNum];
             dealer.Deck.Cards.Remove(dealtCard);
@@ -87,18 +88,63 @@ namespace Blackjack.Core
         {
             Random random = new Random();
             int randomNum = random.Next(0, dealer.Deck.Cards.Count);
-            bool playerBlackjack = false;
 
             Card dealtCard = dealer.Deck.Cards[randomNum];
             dealer.Deck.Cards.Remove(dealtCard);
             player.Score += dealtCard.Value;
             player.Hand.Add(dealtCard);
+
             PrintCards();
+
+            if (HasPlayerBusted())
+            {
+                DealerWins();
+            }
+            else if (HasDealerBusted())
+            {
+                PlayerWins(false);
+            }
         }
 
         public void Stand()
         {
+            Console.WriteLine($"Dealer cards: {String.Join(" ", dealer.Hand)}   Total value: {GetHandValue(dealer.Hand)}");
 
+            while (GetHandValue(dealer.Hand) < 17)
+            {
+                Random random = new Random();
+                int randomNum = random.Next(0, dealer.Deck.Cards.Count);
+                var dealtCard = dealer.Deck.Cards[randomNum];
+                dealer.Deck.Cards.Remove(dealtCard);
+                dealer.Hand.Add(dealtCard);
+
+                Console.WriteLine();
+
+                Console.WriteLine($"Dealer cards: {String.Join(" ", dealer.Hand)}   Total value: {GetHandValue(dealer.Hand)}");
+                Console.WriteLine($"Your cards: {String.Join(" ", player.Hand)}   Total value: {GetHandValue(player.Hand)}");
+
+                Console.WriteLine();
+            }
+
+            // When he has to stand because the value is at least 17
+
+            if (HasDealerBusted())
+            {
+                PlayerWins(playerBlackjack);
+            }
+
+            if (GetHandValue(player.Hand) > GetHandValue(dealer.Hand))
+            {
+                PlayerWins(playerBlackjack);
+            }
+            else if (GetHandValue(dealer.Hand) > GetHandValue(player.Hand))
+            {
+                DealerWins();
+            }
+            else
+            {
+                Push();
+            }
         }
 
         public void Split()
@@ -129,14 +175,23 @@ namespace Blackjack.Core
                 player.Balance += dealer.TotalBetPool * 2;
             }
 
+            Console.WriteLine();
+
             Console.WriteLine($"Congratulations, you won the hand! You won ${dealer.TotalBetPool:F2}!");
+
+            Console.WriteLine();
 
             RestartGame();
         }
 
         public void DealerWins()
         {
+            Console.WriteLine();
+
             Console.WriteLine($"Sorry, you lost! Remaining balance: ${player.Balance:F2}");
+
+            Console.WriteLine();
+
             RestartGame();
         }
 
@@ -148,19 +203,24 @@ namespace Blackjack.Core
 
         public void RestartGame()
         {
+            Console.WriteLine("Press any key to start a new game");
+            Console.ReadKey();
+            Console.Clear();
             Deck deck = new Deck();
             dealer.TotalBetPool = 0;
             dealer.Deck = deck;
 
             dealer.Hand.Clear();
+            dealer.Score = 0;
+
             player.Hand.Clear();
+            player.Score = 0;
         }
 
         public void PrintCards()
         {
-            Console.WriteLine($"Dealer cards: {dealer.Hand[1]}");
-            Console.WriteLine($"Your cards: {String.Join(" ", player.Hand)}");
-            Console.WriteLine($"How do you want to proceed?");
+            Console.WriteLine($"Dealer cards: {dealer.Hand[1]}   Total value: {dealer.Hand[1].Value}");
+            Console.WriteLine($"Your cards: {String.Join(" ", player.Hand)}   Total value: {GetHandValue(player.Hand)}");
         }
 
         private bool HasPlayerBusted()
