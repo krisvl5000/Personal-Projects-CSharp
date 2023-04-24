@@ -77,6 +77,11 @@ namespace Blackjack.Core
 
             while (true)
             {
+                if (dealer.TotalBetPool == 0)
+                {
+                    break;
+                }
+
                 Console.WriteLine($"\nPress enter to hit, space to stand, D to double down or S to split (if possible). Balance: {player.Balance:F2}");
 
                 Console.WriteLine();
