@@ -9,6 +9,7 @@ namespace _01._Hello_Softuni
     {
         static void Main(string[] args)
         {
+            Console.SetWindowSize(120, 30);
             Deck deck = new Deck();
             Dealer dealer = new Dealer(deck);
             Player player = new Player("Player");
