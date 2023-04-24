@@ -109,6 +109,8 @@ namespace Blackjack.Core
         public void Stand()
         {
             Console.WriteLine($"Dealer cards: {String.Join(" ", dealer.Hand)}   Total value: {GetHandValue(dealer.Hand)}");
+            Console.WriteLine("Press any key when you are ready for the dealer to draw a new card.");
+            Console.ReadKey();
 
             while (GetHandValue(dealer.Hand) < 17)
             {
@@ -124,6 +126,14 @@ namespace Blackjack.Core
                 Console.WriteLine($"Your cards: {String.Join(" ", player.Hand)}   Total value: {GetHandValue(player.Hand)}");
 
                 Console.WriteLine();
+
+                if (GetHandValue(dealer.Hand) > 16)
+                {
+                    break;
+                }
+
+                Console.WriteLine("Press any key when you are ready for the dealer to draw a new card.");
+                Console.ReadKey();
             }
 
             // When he has to stand because the value is at least 17
