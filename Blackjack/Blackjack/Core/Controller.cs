@@ -181,7 +181,27 @@ namespace Blackjack.Core
 
         public void DoubleDown()
         {
+            Random random = new Random();
+            int randomNum = random.Next(0, dealer.Deck.Cards.Count);
+            Card dealtCard = dealer.Deck.Cards[randomNum];
+            dealer.Deck.Cards.Remove(dealtCard);
+            player.Score += dealtCard.Value;
+            player.Hand.Add(dealtCard);
 
+            Console.WriteLine();
+            Console.WriteLine("You doubled down!");
+
+            Console.WriteLine($"Your cards: {String.Join(" ", player.Hand)}   Total value: {GetHandValue(player.Hand)}");
+
+            if (GetHandValue(player.Hand) > 21)
+            {
+                DealerWins();
+            }
+            else
+            {
+                Console.WriteLine();
+                Stand();
+            }
         }
 
         public void Push()
