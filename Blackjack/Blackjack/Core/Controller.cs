@@ -163,7 +163,14 @@ namespace Blackjack.Core
             }
             else
             {
-                Push();
+                if (dealer.TotalBetPool > 0)
+                {
+                    Push();
+                }
+                else
+                {
+                    RestartGame();
+                }
             }
         }
 
@@ -181,7 +188,8 @@ namespace Blackjack.Core
         {
             player.Balance += dealer.TotalBetPool;
             Console.WriteLine($"You pushed! You got your ${dealer.TotalBetPool} back!");
-            RestartGame();
+            //RestartGame();
+            dealer.TotalBetPool = 0;
         }
 
         public void PlayerWins(bool blackJack)
@@ -202,7 +210,8 @@ namespace Blackjack.Core
 
             Console.WriteLine();
 
-            RestartGame();
+            //RestartGame();
+            dealer.TotalBetPool = 0;
         }
 
         public void DealerWins()
@@ -213,7 +222,8 @@ namespace Blackjack.Core
 
             Console.WriteLine();
 
-            RestartGame();
+            //RestartGame();
+            dealer.TotalBetPool = 0;
         }
 
         public void Bet(int bet)
