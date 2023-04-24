@@ -88,13 +88,18 @@ namespace Blackjack.Core
                     Console.WriteLine("\nInvalid key, try 1, 2, 3 or 4.");
                     //Space();
                 }
+
+                if (dealer.TotalBetPool == 0)
+                {
+                    break;
+                }
             }
+
+            Run();
         }
 
         public void Space()
         {
-            Console.WriteLine();
-            Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
