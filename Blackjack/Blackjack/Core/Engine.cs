@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
@@ -92,11 +93,27 @@ namespace Blackjack.Core
                 }
                 else if (key.Key == ConsoleKey.D)
                 {
-                    controller.DoubleDown();
+                    if (player.Balance >= bet * 2)
+                    {
+                        controller.Bet(bet);
+                        controller.DoubleDown();
+                    }
+                    else
+                    {
+                        continue;
+                    }
                 }
                 else if (key.Key == ConsoleKey.S)
                 {
-                    controller.Split();
+                    if (player.Balance >= bet * 2)
+                    {
+                        controller.Bet(bet);
+                        controller.Split();
+                    }
+                    else
+                    {
+                        continue;
+                    }
                 }
                 else
                 {
