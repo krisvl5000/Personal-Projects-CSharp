@@ -52,6 +52,7 @@ namespace Blackjack.Core
             if (player.Score == 21)
             {
                 playerBlackjack = true;
+                Stand();
             }
 
             // Dealing the dealer the second card
@@ -103,6 +104,12 @@ namespace Blackjack.Core
             else if (HasDealerBusted())
             {
                 PlayerWins(false);
+            }
+
+            if (player.Score == 21)
+            {
+                playerBlackjack = true;
+                Stand();
             }
         }
 
