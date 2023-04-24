@@ -72,20 +72,27 @@ namespace Blackjack.Core
             }
             else if (playerBlackjack && !dealerBlackjack)
             {
-                PlayerWins();
+                PlayerWins(playerBlackjack);
             }
             else if (dealerBlackjack && !playerBlackjack)
             {
-                DealerWins();
+                DealerWins(dealerBlackjack);
             }
 
-            Console.WriteLine($"Dealer cards: {dealer.Hand[1]}");
-            Console.WriteLine($"Your cards: {String.Join(" ", player.Hand)}");
-            Console.WriteLine($"How do you want to proceed?");
+            PrintCards();
         }
 
         public void Hit()
         {
+            Random random = new Random();
+            int randomNum = random.Next(0, dealer.Deck.Cards.Count);
+            bool playerBlackjack = false;
+
+            Card dealtCard = dealer.Deck.Cards[randomNum];
+            dealer.Deck.Cards.Remove(dealtCard);
+            player.Score += dealtCard.Value;
+            player.Hand.Add(dealtCard);
+            PrintCards();
 
         }
 
@@ -106,23 +113,51 @@ namespace Blackjack.Core
 
         public void Push()
         {
-
+            player.Balance += dealer.TotalBetPool;
+            RestartGame();
         }
 
-        public void PlayerWins()
+        public void PlayerWins(bool blackJack)
         {
+            if (blackJack)
+            {
+                player.Balance += dealer.TotalBetPool + 
+                                  dealer.TotalBetPool * 3 / 2;
+            }
+            else
+            {
+                player.Balance += dealer.TotalBetPool * 2;
+            }
 
+            RestartGame();
         }
 
-        public void DealerWins()
+        public void DealerWins(bool blackJack)
         {
-
+            RestartGame();
         }
 
         public void Bet(int bet)
         {
             dealer.TotalBetPool += bet;
             player.Balance -= bet;
+        }
+
+        public void RestartGame()
+        {
+            Deck deck = new Deck();
+            dealer.TotalBetPool = 0;
+            dealer.Deck = deck;
+
+            dealer.Hand.Clear();
+            player.Hand.Clear();
+        }
+
+        public void PrintCards()
+        {
+            Console.WriteLine($"Dealer cards: {dealer.Hand[1]}");
+            Console.WriteLine($"Your cards: {String.Join(" ", player.Hand)}");
+            Console.WriteLine($"How do you want to proceed?");
         }
     }
 }
