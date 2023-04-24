@@ -23,7 +23,7 @@ namespace Blackjack.Core
 
         public void Run()
         {
-            Console.WriteLine($"OK, let's play some blackjack! How much do you want to bet? Your balance is {player.Balance}.");
+            Console.WriteLine($"OK, let's play some blackjack! How much do you want to bet? Your balance is ${player.Balance}.");
 
             int bet = 0;
 
@@ -39,11 +39,22 @@ namespace Blackjack.Core
                     {
                         throw new InvalidOperationException();
                     }
+
+                    if (bet == 0)
+                    {
+                        throw new ArgumentException();
+                    }
                 }
-                catch (InvalidOperationException ex)
+                catch (InvalidOperationException ioe)
                 {
                     exceptionCaught = true;
-                    Console.WriteLine($"Bet value cannot be greater than your balance ({player.Balance}).");
+                    Console.WriteLine($"Bet value cannot be greater than your balance (${player.Balance}).");
+                    Console.WriteLine();
+                }
+                catch (ArgumentException aex)
+                {
+                    exceptionCaught = true;
+                    Console.WriteLine("Bet cannot be 0.");
                     Console.WriteLine();
                 }
                 catch (Exception ex)
@@ -89,7 +100,7 @@ namespace Blackjack.Core
                 }
                 else
                 {
-                    Console.WriteLine("\nInvalid key, try 1, 2, 3 or 4.");
+                    Console.WriteLine("\nInvalid key, try Enter, Space, S or D.");
                     //Space();
                 }
 
