@@ -63,7 +63,7 @@ namespace Blackjack.Core
 
             while (true)
             {
-                Console.WriteLine($"Press 1 to hit, 2 to stand, 3 to double down or 4 to split (if possible).");
+                Console.WriteLine($"\nPress 1 to hit, 2 to stand, 3 to double down or 4 to split (if possible).");
 
                 ConsoleKeyInfo key = Console.ReadKey();
 
@@ -86,8 +86,18 @@ namespace Blackjack.Core
                 else
                 {
                     Console.WriteLine("\nInvalid key, try 1, 2, 3 or 4.");
+                    Space();
                 }
             }
+        }
+
+        public void Space()
+        {
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
         }
     }
 }
