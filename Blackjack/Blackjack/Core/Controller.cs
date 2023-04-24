@@ -63,9 +63,11 @@ namespace Blackjack.Core
             dealer.Hand.Add(dealtCard);
 
             // Checking if the dealer has blackjack
-            if (dealer.Score + dealtCard.Value == 21)
+            if (GetHandValue(dealer.Hand) == 21)
             {
                 dealerBlackjack = true;
+                DealerWins();
+                return;
             }
 
             // Checking outcome
