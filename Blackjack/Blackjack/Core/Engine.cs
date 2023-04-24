@@ -63,23 +63,23 @@ namespace Blackjack.Core
 
             while (true)
             {
-                Console.WriteLine($"\nPress 1 to hit, 2 to stand, 3 to double down or 4 to split (if possible). Balance: {player.Balance:F2}");
+                Console.WriteLine($"\nPress enter to hit, space to stand, D to double down or S to split (if possible). Balance: {player.Balance:F2}");
 
                 ConsoleKeyInfo key = Console.ReadKey();
 
-                if (key.Key == ConsoleKey.D1)
+                if (key.Key == ConsoleKey.Enter)
                 {
                     controller.Hit();
                 }
-                else if (key.Key == ConsoleKey.D2)
+                else if (key.Key == ConsoleKey.Spacebar)
                 {
                     controller.Stand();
                 }
-                else if (key.Key == ConsoleKey.D3)
+                else if (key.Key == ConsoleKey.D)
                 {
                     controller.DoubleDown();
                 }
-                else if (key.Key == ConsoleKey.D4)
+                else if (key.Key == ConsoleKey.S)
                 {
                     controller.Split();
                 }
