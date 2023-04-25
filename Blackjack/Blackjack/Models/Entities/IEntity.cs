@@ -16,5 +16,7 @@ namespace Blackjack.Models.Entities
         public int Score { get; set; }
 
         public List<Card> Hand { get; set; }
+
+        public List<Card> SecondHand { get; set; }
     }
 }
