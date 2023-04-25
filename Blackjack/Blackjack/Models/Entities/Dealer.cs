@@ -33,5 +33,7 @@ namespace Blackjack.Models.Entities
         public List<Card> Hand { get; set; }
 
         public int TotalBetPool { get; set; }
+
+        public List<Card> SecondHand { get; set; }
     }
 }
