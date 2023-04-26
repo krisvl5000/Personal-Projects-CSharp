@@ -248,7 +248,7 @@ namespace Blackjack.Core
 
             Console.WriteLine();
 
-            //RestartGame();
+            RestartGame();
             dealer.TotalBetPool = 0;
         }
 
