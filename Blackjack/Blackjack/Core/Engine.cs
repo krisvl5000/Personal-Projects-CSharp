@@ -24,120 +24,118 @@ namespace Blackjack.Core
 
         public void Run()
         {
+            Console.WriteLine($"OK, let's play some blackjack! How much do you want to bet? Your balance is ${player.Balance}.");
+
+            int bet = 0;
+
             while (true)
             {
-                Console.WriteLine($"OK, let's play some blackjack! How much do you want to bet? Your balance is ${player.Balance}.");
+                bool exceptionCaught = false;
 
-                int bet = 0;
-
-                while (true)
+                try
                 {
-                    bool exceptionCaught = false;
+                    bet = int.Parse(Console.ReadLine());
 
-                    try
+                    if (bet > player.Balance)
                     {
-                        bet = int.Parse(Console.ReadLine());
-
-                        if (bet > player.Balance)
-                        {
-                            throw new InvalidOperationException();
-                        }
-
-                        if (bet == 0)
-                        {
-                            throw new ArgumentException();
-                        }
-                    }
-                    catch (InvalidOperationException ioe)
-                    {
-                        exceptionCaught = true;
-                        Console.WriteLine($"Bet value cannot be greater than your balance (${player.Balance}).");
-                        Console.WriteLine();
-                    }
-                    catch (ArgumentException aex)
-                    {
-                        exceptionCaught = true;
-                        Console.WriteLine("Bet cannot be 0.");
-                        Console.WriteLine();
-                    }
-                    catch (Exception ex)
-                    {
-                        exceptionCaught = true;
-                        Console.WriteLine("Please only write whole numbers as bets.");
-                        Console.WriteLine();
+                        throw new InvalidOperationException();
                     }
 
-                    if (!exceptionCaught)
+                    if (bet == 0)
                     {
-                        break;
+                        throw new ArgumentException();
                     }
                 }
-
-                controller.Bet(bet);
-
-                controller.InitialDealing();
-
-                while (true)
+                catch (InvalidOperationException ioe)
                 {
-                    if (dealer.TotalBetPool == 0)
-                    {
-                        break;
-                    }
-
-                    Console.WriteLine($"\nPress enter to hit, space to stand, D to double down or S to split (if possible). Balance: {player.Balance:F2}");
-
+                    exceptionCaught = true;
+                    Console.WriteLine($"Bet value cannot be greater than your balance (${player.Balance}).");
                     Console.WriteLine();
+                }
+                catch (ArgumentException aex)
+                {
+                    exceptionCaught = true;
+                    Console.WriteLine("Bet cannot be 0.");
+                    Console.WriteLine();
+                }
+                catch (Exception ex)
+                {
+                    exceptionCaught = true;
+                    Console.WriteLine("Please only write whole numbers as bets.");
+                    Console.WriteLine();
+                }
 
-                    ConsoleKeyInfo key = Console.ReadKey();
+                if (!exceptionCaught)
+                {
+                    break;
+                }
+            }
 
-                    if (key.Key == ConsoleKey.Enter)
+            controller.Bet(bet);
+
+            controller.InitialDealing();
+
+            while (true)
+            {
+                if (dealer.TotalBetPool == 0)
+                {
+                    break;
+                }
+
+                Console.WriteLine($"\nPress enter to hit, space to stand, D to double down or S to split (if possible). Balance: {player.Balance:F2}");
+
+                Console.WriteLine();
+
+                ConsoleKeyInfo key = Console.ReadKey();
+
+                if (key.Key == ConsoleKey.Enter)
+                {
+                    controller.Hit();
+                }
+                else if (key.Key == ConsoleKey.Spacebar)
+                {
+                    controller.Stand();
+                }
+                else if (key.Key == ConsoleKey.D)
+                {
+                    if (player.Balance >= bet)
                     {
-                        controller.Hit();
-                    }
-                    else if (key.Key == ConsoleKey.Spacebar)
-                    {
-                        controller.Stand();
-                    }
-                    else if (key.Key == ConsoleKey.D)
-                    {
-                        if (player.Balance >= bet)
-                        {
-                            controller.Bet(bet);
-                            controller.DoubleDown();
-                        }
-                        else
-                        {
-                            Console.WriteLine("Not enough balance! You can't double down!");
-                            continue;
-                        }
-                    }
-                    else if (key.Key == ConsoleKey.S)
-                    {
-                        if (player.Balance >= bet * 2)
-                        {
-                            controller.Bet(bet);
-                            controller.Split();
-                        }
-                        else
-                        {
-                            Console.WriteLine("Not enough balance! You can't split!");
-                            continue;
-                        }
+                        controller.Bet(bet);
+                        controller.DoubleDown();
                     }
                     else
                     {
-                        Console.WriteLine("\nInvalid key, try Enter, Space, S or D.");
-                        //Space();
-                    }
-
-                    if (dealer.TotalBetPool == 0)
-                    {
-                        break;
+                        Console.WriteLine("Not enough balance! You can't double down!");
+                        continue;
                     }
                 }
+                else if (key.Key == ConsoleKey.S)
+                {
+                    if (player.Balance >= bet * 2)
+                    {
+                        controller.Bet(bet);
+                        controller.Split();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not enough balance! You can't split!");
+                        continue;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("\nInvalid key, try Enter, Space, S or D.");
+                    //Space();
+                }
 
-                controller.RestartGame();
+                if (dealer.TotalBetPool == 0)
+                {
+                    break;
+                }
             }
+
+            controller.RestartGame();
+            Run();
         }
 
         public void Space()
