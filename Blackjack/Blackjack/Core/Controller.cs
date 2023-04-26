@@ -53,7 +53,7 @@ namespace Blackjack.Core
             {
                 playerBlackjack = true;
                 Console.WriteLine("\nNice, you got a Blackjack!");
-                //Stand();
+                Stand();
             }
 
             // Dealing the dealer the second card
@@ -72,8 +72,8 @@ namespace Blackjack.Core
                 Console.WriteLine($"Dealer cards: {String.Join(" ", dealer.Hand)}   Total value: {GetHandValue(dealer.Hand)}");
                 Console.WriteLine($"Your cards: {String.Join(" ", player.Hand)}   Total value: {GetHandValue(player.Hand)}");
                 Console.WriteLine();
-                DealerWins();
-                return; // Might need to add it back
+                //DealerWins();
+                //return; // Might need to add it back
             }
 
             // Checking outcome
@@ -258,8 +258,8 @@ namespace Blackjack.Core
 
             Console.WriteLine();
 
-            RestartGame();
             dealer.TotalBetPool = 0;
+            RestartGame();
         }
 
         public void Bet(int bet)
