@@ -67,8 +67,9 @@ namespace Blackjack.Core
             if (GetHandValue(dealer.Hand) == 21)
             {
                 dealerBlackjack = true;
-                DealerWins();
-                return;
+                Console.WriteLine("The dealer got a blackjack!");
+                //DealerWins(); // Commented that out to see if it will impact the flow of the program
+                //return;
             }
 
             // Checking outcome
@@ -253,7 +254,7 @@ namespace Blackjack.Core
 
             Console.WriteLine();
 
-            //RestartGame();
+            RestartGame();
             dealer.TotalBetPool = 0;
         }
 
