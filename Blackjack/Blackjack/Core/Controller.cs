@@ -91,8 +91,10 @@ namespace Blackjack.Core
             {
                 DealerWins();
             }
-
-            PrintCards();
+            else
+            {
+                PrintCards();
+            }
         }
 
         public void Hit()
@@ -288,7 +290,7 @@ namespace Blackjack.Core
 
         public void PrintCards()
         {
-            Console.WriteLine($"Dealer cards: {dealer.Hand[1]}   Total value: {dealer.Hand[1].Value}");
+            Console.WriteLine($"Dealer cards: {String.Join(" ", dealer.Hand)}   Total value: {GetHandValue(dealer.Hand)}");
             Console.WriteLine($"Your cards: {String.Join(" ", player.Hand)}   Total value: {GetHandValue(player.Hand)}");
         }
 
