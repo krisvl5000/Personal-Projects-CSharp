@@ -134,7 +134,7 @@ namespace Blackjack.Core
                 }
             }
 
-            //controller.RestartGame();
+            controller.RestartGame();
             Run();
         }
 
