@@ -52,6 +52,7 @@ namespace Blackjack.Core
             if (player.Score == 21)
             {
                 playerBlackjack = true;
+                Console.WriteLine("\nNice, you got a Blackjack!");
                 Stand();
             }
 
