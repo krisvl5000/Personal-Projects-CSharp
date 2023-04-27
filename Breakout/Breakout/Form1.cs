@@ -135,7 +135,7 @@ namespace Breakout
             }
         }
 
-        private void keyIsUp(object sender, KeyEventArgs e)
+        private void KeyIsUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left)
             {
