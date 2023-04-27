@@ -16,5 +16,10 @@ namespace _4_Ways_Sprite_Movement_Project
         {
             InitializeComponent();
         }
+
+        private void movementTimer_Tick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
