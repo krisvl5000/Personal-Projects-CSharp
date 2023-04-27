@@ -49,14 +49,14 @@ namespace Breakout
             }
         }
 
-        private void mainGameTimerEvent(object sender, EventArgs e)
+        private void MainGameTimerEvent(object sender, EventArgs e)
         {
             if (goLeft && player.Left > 0)
             {
                 player.Left -= playerSpeed;
             }
 
-            if (goRight && player.Left < 700)
+            if (goRight && player.Right < 680)
             {
                 player.Left += playerSpeed;
             }
