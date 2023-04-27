@@ -76,17 +76,15 @@
             this.scoreBox.Size = new System.Drawing.Size(88, 24);
             this.scoreBox.TabIndex = 0;
             this.scoreBox.Text = "Score: 0";
-            this.scoreBox.Click += new System.EventHandler(this.label1_Click);
             // 
             // player
             // 
             this.player.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.player.Location = new System.Drawing.Point(354, 406);
+            this.player.Location = new System.Drawing.Point(355, 406);
             this.player.Name = "player";
             this.player.Size = new System.Drawing.Size(109, 32);
             this.player.TabIndex = 1;
             this.player.TabStop = false;
-            this.player.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // ball
             // 
@@ -96,7 +94,6 @@
             this.ball.Size = new System.Drawing.Size(30, 32);
             this.ball.TabIndex = 1;
             this.ball.TabStop = false;
-            this.ball.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox1
             // 
@@ -107,7 +104,6 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Tag = "blocks";
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox2
             // 
@@ -118,7 +114,6 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Tag = "blocks";
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox3
             // 
@@ -129,7 +124,6 @@
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Tag = "blocks";
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox4
             // 
@@ -140,7 +134,6 @@
             this.pictureBox4.TabIndex = 1;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Tag = "blocks";
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox5
             // 
@@ -151,7 +144,6 @@
             this.pictureBox5.TabIndex = 1;
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Tag = "blocks";
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox6
             // 
@@ -162,7 +154,6 @@
             this.pictureBox6.TabIndex = 1;
             this.pictureBox6.TabStop = false;
             this.pictureBox6.Tag = "blocks";
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox7
             // 
@@ -173,7 +164,6 @@
             this.pictureBox7.TabIndex = 1;
             this.pictureBox7.TabStop = false;
             this.pictureBox7.Tag = "blocks";
-            this.pictureBox7.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox8
             // 
@@ -184,7 +174,6 @@
             this.pictureBox8.TabIndex = 1;
             this.pictureBox8.TabStop = false;
             this.pictureBox8.Tag = "blocks";
-            this.pictureBox8.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox9
             // 
@@ -195,7 +184,6 @@
             this.pictureBox9.TabIndex = 1;
             this.pictureBox9.TabStop = false;
             this.pictureBox9.Tag = "blocks";
-            this.pictureBox9.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox10
             // 
@@ -206,7 +194,6 @@
             this.pictureBox10.TabIndex = 1;
             this.pictureBox10.TabStop = false;
             this.pictureBox10.Tag = "blocks";
-            this.pictureBox10.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox11
             // 
@@ -217,7 +204,6 @@
             this.pictureBox11.TabIndex = 1;
             this.pictureBox11.TabStop = false;
             this.pictureBox11.Tag = "blocks";
-            this.pictureBox11.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox12
             // 
@@ -228,7 +214,6 @@
             this.pictureBox12.TabIndex = 1;
             this.pictureBox12.TabStop = false;
             this.pictureBox12.Tag = "blocks";
-            this.pictureBox12.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox13
             // 
@@ -239,7 +224,6 @@
             this.pictureBox13.TabIndex = 1;
             this.pictureBox13.TabStop = false;
             this.pictureBox13.Tag = "blocks";
-            this.pictureBox13.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox14
             // 
@@ -250,7 +234,6 @@
             this.pictureBox14.TabIndex = 1;
             this.pictureBox14.TabStop = false;
             this.pictureBox14.Tag = "blocks";
-            this.pictureBox14.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox15
             // 
@@ -261,7 +244,6 @@
             this.pictureBox15.TabIndex = 1;
             this.pictureBox15.TabStop = false;
             this.pictureBox15.Tag = "blocks";
-            this.pictureBox15.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // gameTimer
             // 
@@ -295,7 +277,6 @@
             this.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.Name = "Form1";
             this.Text = "Breakout Game";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.keyIsUp);
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
