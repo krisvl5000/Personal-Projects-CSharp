@@ -27,6 +27,7 @@ namespace Breakout
         public Form1()
         {
             InitializeComponent();
+            GameSetup();
         }
 
         private void GameSetup()
@@ -35,23 +36,17 @@ namespace Breakout
             ballx = 5;
             bally = 5;
             playerSpeed = 12;
+            scoreBox.Text = "Score: " + score;
 
             gameTimer.Start();
-        }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
+            foreach (Control x in Controls)
+            {
+                if (x is PictureBox && (string)x.Tag == "blocks")
+                {
+                    x.BackColor = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
+                }
+            }
         }
 
         private void mainGameTimerEvent(object sender, EventArgs e)
