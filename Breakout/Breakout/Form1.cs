@@ -51,17 +51,39 @@ namespace Breakout
 
         private void mainGameTimerEvent(object sender, EventArgs e)
         {
+            if (goLeft && player.Left > 0)
+            {
+                player.Left -= playerSpeed;
+            }
 
+            if (goRight && player.Left < 700)
+            {
+                player.Left += playerSpeed;
+            }
         }
 
         private void keyIsDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Left)
+            {
+                goLeft = true;
+            }
+            if (e.KeyCode == Keys.Right)
+            {
+                goRight = true;
+            }
         }
 
         private void keyIsUp(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Left)
+            {
+                goLeft = false;
+            }
+            if (e.KeyCode == Keys.Right)
+            {
+                goRight = false;
+            }
         }
     }
 }
