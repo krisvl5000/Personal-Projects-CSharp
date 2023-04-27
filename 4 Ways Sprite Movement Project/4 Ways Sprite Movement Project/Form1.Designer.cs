@@ -49,6 +49,7 @@
             // 
             this.movementTimer.Enabled = true;
             this.movementTimer.Interval = 20;
+            this.movementTimer.Tick += new System.EventHandler(this.movementTimer_Tick);
             // 
             // Form1
             // 
