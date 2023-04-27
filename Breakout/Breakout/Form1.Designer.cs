@@ -80,7 +80,7 @@
             // player
             // 
             this.player.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.player.Location = new System.Drawing.Point(319, 414);
+            this.player.Location = new System.Drawing.Point(319, 415);
             this.player.Name = "player";
             this.player.Size = new System.Drawing.Size(77, 24);
             this.player.TabIndex = 1;
@@ -89,7 +89,7 @@
             // ball
             // 
             this.ball.BackColor = System.Drawing.Color.Yellow;
-            this.ball.Location = new System.Drawing.Point(349, 356);
+            this.ball.Location = new System.Drawing.Point(348, 267);
             this.ball.Name = "ball";
             this.ball.Size = new System.Drawing.Size(20, 19);
             this.ball.TabIndex = 1;
