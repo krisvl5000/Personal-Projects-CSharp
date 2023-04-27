@@ -36,7 +36,6 @@ namespace Breakout
             ballx = 5;
             bally = 5;
             playerSpeed = 12;
-            scoreBox.Text = "Score: " + score;
 
             gameTimer.Start();
 
@@ -49,8 +48,18 @@ namespace Breakout
             }
         }
 
+        private void GameOver(string message)
+        {
+            isGameOver = true;
+            gameTimer.Stop();
+
+            scoreBox.Text = "Score: " + score + " " + message;
+        }
+
         private void MainGameTimerEvent(object sender, EventArgs e)
         {
+            scoreBox.Text = "Score: " + score;
+
             if (goLeft && player.Left > 0)
             {
                 player.Left -= playerSpeed;
@@ -97,12 +106,24 @@ namespace Breakout
                         score += 1;
 
                         bally = -bally;
+
+                        Controls.Remove(x);
                     }
                 }
             }
+
+            if (score == 15)
+            {
+                GameOver("You win!");
+            }
+
+            if (ball.Top > 450)
+            {
+                GameOver("You lose!");
+            }
         }
 
-        private void keyIsDown(object sender, KeyEventArgs e)
+        private void KeyIsDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left)
             {
