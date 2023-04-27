@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4 Ways Sprite Movement Project", "4 Ways Sprite Movement Project\4 Ways Sprite Movement Project.csproj", "{A4E1A8EF-8558-4570-A4D8-157365DCCC69}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4E1A8EF-8558-4570-A4D8-157365DCCC69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4E1A8EF-8558-4570-A4D8-157365DCCC69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4E1A8EF-8558-4570-A4D8-157365DCCC69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4E1A8EF-8558-4570-A4D8-157365DCCC69}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5451E09-09E0-45B4-976C-385F2D99B004}
+	EndGlobalSection
+EndGlobal
