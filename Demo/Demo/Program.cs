@@ -63,7 +63,7 @@ namespace _01._Hello_Softuni
                 {
                     doesNotRepeatCharacters = false;
                 }
-                else if (counter == 3)
+                else if (counter == 3) 
                 {
                     charList.Clear();
                     counter = 0;
