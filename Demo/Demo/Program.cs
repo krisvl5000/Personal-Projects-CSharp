@@ -10,7 +10,7 @@ namespace _01._Hello_Softuni
         }
     }
 
-    public static class Solution
+    public class Solution
     {
         public static bool IsSubsequence(string s, string t)
         {
@@ -19,13 +19,18 @@ namespace _01._Hello_Softuni
 
             var finalList = new List<char>();
 
-            foreach (var t1 in sList)
+            for (int i = 0; i < sList.Count; i++)
             {
-                foreach (var t2 in tList)
+                for (int j = 0; j < tList.Count; j++)
                 {
-                    if (t1 == t2)
+                    if (sList[i] == tList[j])
                     {
-                        finalList.Add(t1);
+                        if (j > sList.Count)
+                        {
+                            break;
+                        }
+
+                        finalList.Add(tList[i]);
                         break;
                     }
                 }
@@ -33,7 +38,7 @@ namespace _01._Hello_Softuni
 
             if (string.Join("", finalList) == s)
             {
-                return true;    
+                return true;
             }
 
             return false;
