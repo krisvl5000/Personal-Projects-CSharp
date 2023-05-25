@@ -6,42 +6,71 @@ namespace _01._Hello_Softuni
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Solution.IsSubsequence("acb", "ahbgdc"));
+            Console.WriteLine(Solution.StrongPasswordChecker("NehtoSiTam235"));
         }
     }
 
     public class Solution
     {
-        public static bool IsSubsequence(string s, string t)
+        public static int StrongPasswordChecker(string password)
         {
-            var sList = s.ToList();
-            var tList = t.ToList();
+            int result = 0;
 
-            var finalList = new List<char>();
+            List<bool> boolList = new List<bool>();
 
-            for (int i = 0; i < sList.Count; i++)
+            bool isOfValidLength = true;
+            boolList.Add(isOfValidLength);
+
+            bool hasLowercaseLetter = true;
+            boolList.Add(hasLowercaseLetter);
+
+            bool hasUppercaseLetter = true;
+            boolList.Add(hasUppercaseLetter);
+
+            bool doesNotRepeatCharacters = true;
+            boolList.Add(doesNotRepeatCharacters);
+
+            // Check if the length is valid
+            if (password.Length < 6 || password.Length > 20)
             {
-                for (int j = 0; j < tList.Count; j++)
-                {
-                    if (sList[i] == tList[j])
-                    {
-                        if (j > sList.Count)
-                        {
-                            break;
-                        }
+                isOfValidLength = false;
+            }
 
-                        finalList.Add(tList[i]);
-                        break;
-                    }
+            // Check if it contains lowercase letters
+            if (!password.Any(x => char.IsLower(x)))
+            {
+                hasLowercaseLetter = false;
+            }
+
+            // Check if it contains uppercase letters
+            if (!password.Any(x => char.IsUpper(x)))
+            {
+                hasUppercaseLetter = false;
+            }
+
+            // Check if it repeats characters
+            var counter = 0;
+
+            var charList = new List<char>();
+
+            foreach (var ch in password)
+            {
+                counter++;
+
+                charList.Add(ch);
+
+                if (counter == 3 && charList.All(x => x == ch))
+                {
+                    doesNotRepeatCharacters = false;
+                }
+                else if (counter == 3)
+                {
+                    charList.Clear();
+                    counter = 0;
                 }
             }
 
-            if (string.Join("", finalList) == s)
-            {
-                return true;
-            }
-
-            return false;
+            return result;
         }
     }
 }
