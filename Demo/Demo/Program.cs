@@ -49,7 +49,7 @@ namespace _01._Hello_Softuni
             }
 
             // Check if it repeats characters
-            var counter = 0; 
+            var counter = 0;   
 
             var charList = new List<char>();
 
