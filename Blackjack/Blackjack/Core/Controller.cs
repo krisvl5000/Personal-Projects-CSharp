@@ -228,7 +228,6 @@ namespace Blackjack.Core
         {
             player.Balance += dealer.TotalBetPool;
             Console.WriteLine($"You pushed! You got your ${dealer.TotalBetPool} back!");
-            //RestartGame();
             dealer.TotalBetPool = 0;
         }
 
@@ -249,8 +248,7 @@ namespace Blackjack.Core
             Console.WriteLine($"Congratulations, you won the hand! You won ${dealer.TotalBetPool:F2}!");
 
             Console.WriteLine();
-
-            //RestartGame();
+            
             dealer.TotalBetPool = 0;
         }
 
